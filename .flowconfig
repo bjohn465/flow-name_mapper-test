@@ -1,0 +1,2 @@
+[options]
+module.name_mapper.extension='mp3' -> '<PROJECT_ROOT>/flow-typed/mp3-stub.js'
