@@ -1,2 +1,3 @@
 // @flow
-declare export var mp3: string
+const s: string = ''
+export default s
