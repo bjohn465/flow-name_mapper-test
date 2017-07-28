@@ -1,11 +1,14 @@
 // @flow
 import React, { Component } from 'react'
-import sound from './bell.mp3'
 
 export default class AudioPlayer extends Component {
+  props: {
+    src: string
+  }
+
   render () {
     return (
-      <audio controls src={sound} />
+      <audio controls src={this.props.src} />
     )
   }
 }
