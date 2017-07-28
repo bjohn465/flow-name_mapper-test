@@ -28,21 +28,34 @@ errors with
 "Required module not found"
 on the import of the MP3 file.
 
-## Attempted solution
+## The solution
 
-Flow has a
-[module.name_mapper option](https://flow.org/en/docs/config/options/#toc-module-name-mapper-regex-string)
-that, from what I've read,
-should handle this situation.
+It turned out
+that Flow didn't like
+my stub file
+living in the `flow-typed` directory.
+I moved the stub
+into a directory named `flow-stubs`,
+and updated the [flow config](.flowconfig)
+to point to it:
 
-I have [attempted to implement this](.flowconfig),
-using a slightly-more-convenient-but-similar
+```
+[options]
+module.name_mapper.extension='mp3' -> '<PROJECT_ROOT>/flow-stubs/mp3-stub.js'
+```
+
+## My original attempt
+
+Originally, I used the
 [module.name_mapper.extension](https://flow.org/en/docs/config/options/#toc-module-name-mapper-extension-string-string)
 option,
-but Flow continues to error.
-I'm not sure if I'm doing it wrong,
-if something isn't configured correctly,
-or if it's something else.
+but I had the stub (`mp3-stub.js`)
+in the `flow-typed` directory.
+By default,
+`flow-typed` is a special directory
+that Flow uses
+to look for
+[library definitions (or "libdefs")](https://flow.org/en/docs/libdefs/).
 
 ## Installation
 
